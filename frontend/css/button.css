@@ -8,6 +8,8 @@ a.animated-button:link, a.animated-button:visited {
 	display: block;
 	margin: 30px auto 0;
 	padding: 14px 15px;
+	width: 200px;
+	top:30px;
 	color: #fff;
 	font-size:14px;
 	font-weight: bold;

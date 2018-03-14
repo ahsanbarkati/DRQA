@@ -21,13 +21,25 @@
   <br>
   <div class="text">Wiki-Scroll</div>
 
-  <input class="button" placeholder="Search..." />
-  <div class="container"> 
-  		<div class="row">
-    		<div class="col-md-3 col-sm-3 col-xs-6"> <a href="#" class="btn btn-sm animated-button victoria-four">Learn more</a>      </div>
-  		</div>
-	</div>
+  <input id="SearchBox" class="button" placeholder="Search..." />
+    		<div id="SearchButton" onclick="myMove()" > <a href="#" class="btn btn-sm animated-button victoria-four">ASK ME</a>      </div>
   <script src='https://use.edgefonts.net/amaranth.js'></script>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("SearchBox");   
+  var pos = 220;
+  var id = setInterval(frame, 1);
+  function frame() {
+    if (pos == 50) {
+      clearInterval(id);
+    } else {
+      pos--; 
+      elem.style.top = pos + 'px'; 
+    }
+  }
+}
+</script>
 
   
 
