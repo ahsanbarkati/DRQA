@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1>Overview</h1>
+<p>{{output}}</p>
+  <p>Do you want to <a href="{{ url_for('login') }}">ask again?</a>
+{% endblock %}

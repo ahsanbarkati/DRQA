@@ -84,6 +84,7 @@ def process(question, candidates=None, top_n=1, n_docs=5):
         ['Rank', 'Answer', 'Doc', 'Answer Score', 'Doc Score']
     )
     for i, p in enumerate(predictions, 1):
+        print(p['span'])
         table.add_row([i, p['span'], p['doc_id'],
                        '%.5g' % p['span_score'],
                        '%.5g' % p['doc_score']])

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1>Ask Questions</h1>
+  {% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+  <form action="" method=post>
+    <dl>
+      <dt>Question:
+      <dd><input type=text name=username value="{{
+          request.form.username }}">
+    </dl>
+    <p><input type=submit value=Ask>
+  </form>
+{% endblock %}

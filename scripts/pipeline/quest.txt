@@ -1,0 +1,6 @@
+{"question": "what does jamaican people speak?", "answer": ["Jamaican Creole English Language", "Jamaican English"]}
+{"question": "what did james k polk do before he was president?", "answer": ["Lawyer"]}
+{"question": "what is the oregon ducks 2012 football schedule?", "answer": ["University of Oregon"]}
+{"question": "who plays ken barlow in coronation street?", "answer": ["Tony Warren"]}
+{"question": "what happened after mr. sugihara died?", "answer": ["Yaotsu"]}
+
