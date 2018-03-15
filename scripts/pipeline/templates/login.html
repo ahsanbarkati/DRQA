@@ -72,11 +72,11 @@ function loadXMLDoc()
      <div class="text">Wiki-Scroll</div>  
      <center> <input id="SearchBox" class="question" placeholder="Search..." type=text name="username" value="{{
           request.form.username }}"></center>
-<div class="container">
-  <div style="width:150px">
+<div class="container" align="center">
+  <div style="display: inline-block;">
     <button class="w3-button w3-border w3-hover-red">Ask Me</button>
   </div>
-  <div class="output">{{output}}</div>
+  <div class="output" style="display: inline-block;">{{output}}</div>
   <input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();">
 </div>
 </form>
