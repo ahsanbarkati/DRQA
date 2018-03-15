@@ -73,13 +73,11 @@ function loadXMLDoc()
      <center> <input id="SearchBox" class="question" placeholder="Search..." type=text name="username" value="{{
           request.form.username }}"></center>
 <div class="container" align="center">
-  <div style="display: inline-block;">
-    <button class="w3-button w3-border w3-hover-red">Ask Me</button>
-  </div>
-  <div class="output" style="display: inline-block;">{{output}}</div>
-  <input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();">
+    <button class="w3-button w3-border w3-hover-red" style='margin-right:100px; position:relative; top: 65px'>Ask Me</button>
+    <input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 65px'>
 </div>
 </form>
+<div class="output">{{output}}</div>
 <div id="myDiv"></div>
 
 {% endblock %}
