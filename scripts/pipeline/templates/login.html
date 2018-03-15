@@ -40,7 +40,7 @@ function loadXMLDoc()
 				{
 				im=response.username[i];
 				if(i%4==0 && i!=0)img+='<br>';	
-				img+='<a href="'+im+'"><img height=70 width=70 src="'+im+'"></img></a>'
+				img+='<a href="'+im+'"<img height=70 width=70 src="'+im+'"></img></a>'
 				}
 			
                     document.getElementById('myDiv').innerHTML =img;
