@@ -35,7 +35,7 @@ print("Pipeline ready")
 # Drop in to interactive mode
 # ------------------------------------------------------------------------------
 
-def process(question, candidates=None, top_n=1, n_docs=20):
+def process(question, candidates=None, top_n=1, n_docs=10):
     print("Processing")
     predictions = DrQA.process(
         question, candidates, top_n, n_docs, return_context=True

@@ -14,14 +14,12 @@ function loadXMLDoc()
                     var response = JSON.parse(req.responseText)
                         var l=response.username.length;                 
                         var img="";
-			img+='<p>'
                         for(i=0;i<l;i++)
                                 {
                                 im=response.username[i];
-                                if(i%4==0 && i!=0)img+='<br></p><p>';  
-                                img+='<a href="'+im+'"><img class=image height=70 width=70 src="'+im+'"></img></a>';
+                                if(i%4==0 && i!=0)img+='<br>';  
+                                img+='<a href="'+im+'"><img class="image" src="'+im+'"></img></a>';
                                 }
-                        img+='</p>'
                     document.getElementById('myDiv').innerHTML =img;
 //                      alert(img);
                 //for(i=0;i<response.username.length;i++)
@@ -39,4 +37,5 @@ function loadXMLDoc()
         
         return false
     }
+
 

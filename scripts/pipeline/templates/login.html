@@ -8,64 +8,98 @@
 
 
 <head>
-  <meta charset="UTF-8">
-  <title>Animated Search box [Pure CSS]</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
-<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-
-      <link rel="stylesheet" href="../static/styles/style.css">
-      <link rel="stylesheet" href="../static/styles/button.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 	<meta charset="UTF-8">
+ 	<title>Animated Search box [Pure CSS]</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
+	<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+	<link rel="stylesheet" href="../static/styles/style.css">
+   	<link rel="stylesheet" href="../static/styles/button.css">
+  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<script type="text/javascript" src="../static/image.js">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="../static/image.js"></script>
+<script type="text/javascript">
+	function sleep( sleepDuration ){
+    	var now = new Date().getTime();
+    	while(new Date().getTime() < now + sleepDuration){ /* do nothing */ } 
+	}
+	function update(element){  
+		var flag=0;
+ 		var val=element.value;
+  		if(val[val.length-1]==' ' && (val.length-1)!=0){
+  			flag=1;
+			console.log("spce");
+		}
+		val=val.split(" ");
+		l=val.length;
+		console.log(val)
+		//check spellin
+//		console.log(st)
+		if(flag && val.length>1){
+		console.log("calling spell")
+		var st=spellfun()
+		console.log("got st as")
+		console.log(st)
+		$('#SearchBox').val(val.slice(0,l-2).join(" ")+" "+st+" ");
+		
+		}
+	}
+	
+	function spellfun(){
+		var inp="";   
+        var reqq = new XMLHttpRequest()
+        reqq.onreadystatechange = function()
+        {
+            if (reqq.readyState == 4)
+            {
+                if (reqq.status != 200)
+                {
+                    //error handling code here
+                }
+                else
+                {
+                    var response = JSON.parse(reqq.responseText);
+					inp=response.username;
+					document.getElementById('tryyy').innerHTML =inp;
+					console.log("done "+inp)
+                }
+            }
+        }
+    
+        reqq.open('POST', '/ajaxspell')
+        reqq.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        var un = document.getElementById('SearchBox').value
+        var postVars ='username= '+ un
+        reqq.send(postVars)
+        
+        return inp
+    }
+
+	
 </script>
+
+
+
 <form action="" method=post>
-     <br>
-<br><br> 
-     <div class="text">Wiki-Scroll</div>  
-     <center> <input id="SearchBox" class="question" placeholder="Search..." type=text name="username" value="{{
-          request.form.username }}"></center>
-<div class="container" align="center" style="">
-    <button class="w3-button w3-border w3-blue w3-hover-green" style='margin-right:75px; position:relative; top: 0px; width:150px;height:50px; font-size:'middle''>Ask Me</button>
-  <!--  <input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 65px'>
--->
-<button class="w3-button w3-border w3-blue w3-hover-green" type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:75px; position:relative; top: 0px; width:150px; height:50px'>
+	<br><br><br> 
+  	<div class="text">Wiki-Scroll</div>  	 
+	<center> 
+	<input id="SearchBox" onkeypress="update(this)" class="question" placeholder="Search..." type=text name="username" value="{{request.form.username }}"></center>
+  	<div class="container" align="center" style="">
+  	<button class="w3-button w3-border w3-blue w3-hover-green" style='margin-right:75px; position:relative; top: 0px; width:150px;height:50px; font-size:'middle''>Ask Me</button>
+  	<button class="w3-button w3-border w3-blue w3-hover-green" type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:75px; position:relative; top: 0px; width:150px; height:50px'>
 Image Search</button>
-</div>
+  	</div>
 </form>
 
-<div class="output">{{output}}</div>
-<div id="myDiv" class="imageset"></div>
-<!--<div id="myDiv" class="imageset">
-<div id="myDiv"></div>
-<p>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<br>
-</p>
-<p>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<br>
-</p>
-<p>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<br>
-</p>
-<p>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<img src="mypic.jpg" height=200 width=200 class=image></img>
-<br>-->
 
+
+<div class="output"><h3>The predicted answer is {{anss}}<br></h3>
+<h4>Context:</h4>
+<p>{{output}}</p></div>
+<div id="myDiv" class="imageset"></div>
+<div id="tryyy">spelll</div>
 {% endblock %}

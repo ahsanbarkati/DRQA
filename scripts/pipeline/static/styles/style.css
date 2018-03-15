@@ -1,6 +1,17 @@
+.imageset { 
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-gap:20px;
+  align-items: stretch;
+  justify-items: center;
+  border-style: solid;
+}
 .image {
+  max-width:100%
+  box-shadow: 2px 2px 6px 0px rgba(0,0,0,0,3);
+  border: 1px solid #ccc;
+  border-radius:8px;
   opacity: 0.5;
-  height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
 }
@@ -15,6 +26,7 @@
 top:350px;
   margin: 50px;
   border-radius:15px;
+  background-color: rgba(0, 0, 0, 0.5);
 
 }
 
@@ -24,14 +36,18 @@ top:350px;
   margin: 0 auto;
   top:70px;
   width:1200px;
-  height:300px;
   color: white;
   font-family: 'Slabo 27px', serif;
-  font-size: 24px;
-  text-align: center;
+  font-size: 22px;
   }
-p.output {
-  text-align: justify-all;
+output.h3 {
+  text-align: center;
+}
+output.h4{
+  text.align: left;
+}
+output p {
+  text-align: justify;
 }
 .question {
   display: block;s
@@ -113,12 +129,6 @@ body {
   top:50px;
   width:800px;
 /*Here we have image styling*/
-img {
-    border-radius: 8px;
-}
-.imageset {
-    
-}
 
 
 
