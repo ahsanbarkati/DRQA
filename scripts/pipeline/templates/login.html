@@ -13,7 +13,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
-<link href="https://fonts.googleapis.com/css?family=Acme|Coustard" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
       <link rel="stylesheet" href="../static/styles/style.css">
       <link rel="stylesheet" href="../static/styles/button.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -62,17 +63,23 @@ function loadXMLDoc()
 <form action="" method=post>
      <br>
 <br><br> 
-     <div class="text">Wiki-Scroll</div>  
+     <div class="text" style="border-style: solid; width: 800px; margin: auto">Wiki-Scroll</div>  
      <center> <input id="SearchBox" class="question" placeholder="Search..." type=text name="username" value="{{
           request.form.username }}"></center>
-<div class="container" align="center">
-    <button class="w3-button w3-border w3-hover-red" style='margin-right:100px; position:relative; top: 65px; width:150px;height:50px; font-size:'middle''>Ask Me</button>
+<div class="container" align="center" style="border-style:solid;">
+    <button class="w3-button w3-border w3-blue w3-hover-green" style='margin-right:100px; position:relative; top: 0px; width:150px;height:50px; font-size:'middle''>Ask Me</button>
     <!--<input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 65px'>-->
-<button class="w3-button w3-border w3-hover-red" type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 65px; width:150px; height:50px'>
+<button class="w3-button w3-border w3-blue w3-hover-green" type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 0px; width:150px; height:50px'>
 Image Search</button>
 </div>
 </form>
-<div class="output">{{output}}</div>
+<div class="output" ><{{output}} to know where to start. Below are what many consider to be my “greatest hits,” the articles that have been the most popular, the most shared, or had the greatest effect on readers’ lives.
+
+I’ve listed the best 5-6 posts in four different categories below: Self Improvement, Life Choices, Dating and Relationships, and Culture.
+
+You can also sign up for my newsletter below and get a free ebook, “3 Ideas That Can Change Your Life”. I send out occasional updates with new articles and stuff I’m working on. Your information is protected and I never spam.
+
+</div>
 <div id="myDiv"></div>
 
 {% endblock %}
