@@ -16,6 +16,8 @@ import os
 from termcolor import colored
 from drqa import pipeline
 from drqa.retriever import utils
+
+print("import done!")
 os.system("export CLASSPATH=$CLASSPATH:/home/shellphish/DrQA/data/corenlp/*")
 #logger.info('Initializing pipeline...')
 DrQA = pipeline.DrQA(
@@ -27,13 +29,13 @@ DrQA = pipeline.DrQA(
     tokenizer=None
 )
 
-
+print("Pipeline ready")
 
 # ------------------------------------------------------------------------------
 # Drop in to interactive mode
 # ------------------------------------------------------------------------------
 
-def process(question, candidates=None, top_n=1, n_docs=5):
+def process(question, candidates=None, top_n=1, n_docs=20):
     print("Processing")
     predictions = DrQA.process(
         question, candidates, top_n, n_docs, return_context=True

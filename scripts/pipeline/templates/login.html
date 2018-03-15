@@ -19,72 +19,27 @@
       <link rel="stylesheet" href="../static/styles/button.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<script type="text/javascript">
-function loadXMLDoc()
-    {   
-        var req = new XMLHttpRequest()
-        req.onreadystatechange = function()
-        {
-            if (req.readyState == 4)
-            {
-                if (req.status != 200)
-                {
-                    //error handling code here
-                }
-                else
-                {
-                    var response = JSON.parse(req.responseText)
-			var l=response.username.length;			
-			var img="";
-			for(i=0;i<l;i++)
-				{
-				im=response.username[i];
-				if(i%4==0 && i!=0)img+='<br>';	
-				img+='<a href="'+im+'"<img height=70 width=70 src="'+im+'"></img></a>'
-				}
-			
-                    document.getElementById('myDiv').innerHTML =img;
-			//alert(img);
-		//for(i=0;i<response.username.length;i++)
-		//	imglist+='<li><img src= "' +response.username[i] + '"></li>';
-		//$('#myDiv').append('<li><img src="'+response.username[0]+'"></li>');
-                }
-            }
-        }
-    
-        req.open('POST', '/ajax')
-        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-        var un = document.getElementById('SearchBox').value
-        var postVars ='username='+ un
-        req.send(postVars)
-        
-        return false
-    }
+<script type="text/javascript" src="../static/image.js">
 </script>
 <form action="" method=post>
      <br>
 <br><br> 
-     <div class="text" style="border-style: solid; width: 800px; margin: auto">Wiki-Scroll</div>  
+     <div class="text">Wiki-Scroll</div>  
      <center> <input id="SearchBox" class="question" placeholder="Search..." type=text name="username" value="{{
           request.form.username }}"></center>
-<div class="container" align="center" style="border-style:solid;">
-    <button class="w3-button w3-border w3-blue w3-hover-green" style='margin-right:100px; position:relative; top: 0px; width:150px;height:50px; font-size:'middle''>Ask Me</button>
-    <!--<input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 65px'>-->
-<button class="w3-button w3-border w3-blue w3-hover-green" type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 0px; width:150px; height:50px'>
+<div class="container" align="center" style="">
+    <button class="w3-button w3-border w3-blue w3-hover-green" style='margin-right:75px; position:relative; top: 0px; width:150px;height:50px; font-size:'middle''>Ask Me</button>
+  <!--  <input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:100px; position:relative; top: 65px'>
+-->
+<button class="w3-button w3-border w3-blue w3-hover-green" type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();" style='margin-left:75px; position:relative; top: 0px; width:150px; height:50px'>
 Image Search</button>
 </div>
 </form>
-<div class="output" ><{{output}} to know where to start. Below are what many consider to be my “greatest hits,” the articles that have been the most popular, the most shared, or had the greatest effect on readers’ lives.
-
-I’ve listed the best 5-6 posts in four different categories below: Self Improvement, Life Choices, Dating and Relationships, and Culture.
-
-You can also sign up for my newsletter below and get a free ebook, “3 Ideas That Can Change Your Life”. I send out occasional updates with new articles and stuff I’m working on. Your information is protected and I never spam.
-
-</div>
-<div id="myDiv"></div>
 
 <div class="output">{{output}}</div>
+<div id="myDiv" class="imageset"></div>
 <!--<div id="myDiv" class="imageset">
+<div id="myDiv"></div>
 <p>
 <img src="mypic.jpg" height=200 width=200 class=image></img>
 <img src="mypic.jpg" height=200 width=200 class=image></img>
@@ -112,6 +67,5 @@ You can also sign up for my newsletter below and get a free ebook, “3 Ideas Th
 <img src="mypic.jpg" height=200 width=200 class=image></img>
 <img src="mypic.jpg" height=200 width=200 class=image></img>
 <br>-->
-</div>
 
 {% endblock %}

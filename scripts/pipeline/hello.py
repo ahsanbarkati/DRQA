@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, url_for,jsonify
+from flask import Flask, flash, redirect, render_template, request, url_for,jsonify,make_response
 import fun
 import images
 app = Flask(__name__)
@@ -13,7 +13,7 @@ def ajax_request():
     print("ajax called")
     username = request.form['username']
     username=images.images(username)
-    return jsonify(username=username)
+    return make_response(jsonify(username=username))
    
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,6 +24,7 @@ def login():
 #            output="ahsan"
 #            return output
             output=fun.process(request.form['username'])
+            output=jsonify(output)
             return render_template('login.html',output=output)
         
     return render_template('login.html', error=error)

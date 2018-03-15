@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-body {
-  background-image: url("https://i.redd.it/3lxlwac0rfmx.png");  
-}
-.container {
-  position: relative;
-  margin: 0 auto;
-  top:50px;
-  width:800px;
-=======
-/*Here we have image styling*/
-img {
-    border-radius: 8px;
-}
-.imageset {
-    
-}
-
 .image {
   opacity: 0.5;
   height: auto;
@@ -33,24 +15,19 @@ img {
 top:350px;
   margin: 50px;
   border-radius:15px;
-  opacity: 0.5;
->>>>>>> refs/remotes/origin/master
 
 }
 
 .output {
   position: relative;
-  border-radius:15px;
-  border-style: solid;
+  
   margin: 0 auto;
   top:70px;
-  align-self: center;
   width:1200px;
   height:300px;
-  font-weight:bold;
   color: white;
-  font-family: 'Slabo 100px', serif;
-  font-size: 20px;
+  font-family: 'Slabo 27px', serif;
+  font-size: 24px;
   text-align: center;
   }
 p.output {
@@ -125,6 +102,22 @@ p.output {
 
 input:focus {
   outline: none;
+}
+
+body {
+  background-image: url("https://i.redd.it/3lxlwac0rfmx.png");  
+}
+.container {
+  position: relative;
+  margin: 0 auto;
+  top:50px;
+  width:800px;
+/*Here we have image styling*/
+img {
+    border-radius: 8px;
+}
+.imageset {
+    
 }
 
 
