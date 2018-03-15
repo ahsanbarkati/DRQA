@@ -1,3 +1,23 @@
+/*Here we have image styling*/
+img {
+    border-radius: 8px;
+}
+.imageset {
+    
+}
+
+.image {
+  opacity: 0.5;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image:hover {
+  opacity: 1;
+}
+
+/*Output Styling*/
 .output {
   position:relative:
 top:350px;
