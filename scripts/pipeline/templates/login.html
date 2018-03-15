@@ -37,8 +37,9 @@ function loadXMLDoc()
 			var img="";
 			for(i=0;i<l;i++)
 				{
+				im=response.username[i];
 				if(i%4==0 && i!=0)img+='<br>';	
-				img+='<img height=70 width=70 src="'+response.username[i]+'"></img>';
+				img+='<a href="'+im+'"><img height=70 width=70 src="'+im+'"></img></a>'
 				}
 			
                     document.getElementById('myDiv').innerHTML =img;
