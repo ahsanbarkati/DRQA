@@ -1,2 +1,2 @@
-import fun
-print(fun.process("apple"))
+import images
+print(images.images("apple"))

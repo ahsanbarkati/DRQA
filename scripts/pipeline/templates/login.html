@@ -1,15 +1,85 @@
 {% extends "layout.html" %}
 {% block body %}
-  <h1>Ask Questions</h1>
   {% if error %}
     <p class=error><strong>Error:</strong> {{ error }}
   {% endif %}
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Search box [Pure CSS]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
+<link href="https://fonts.googleapis.com/css?family=Acme|Coustard" rel="stylesheet"> 
+      <link rel="stylesheet" href="../static/styles/style.css">
+      <link rel="stylesheet" href="../static/styles/button.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<script type="text/javascript">
+function loadXMLDoc()
+    {   
+        var req = new XMLHttpRequest()
+        req.onreadystatechange = function()
+        {
+            if (req.readyState == 4)
+            {
+                if (req.status != 200)
+                {
+                    //error handling code here
+                }
+                else
+                {
+                    var response = JSON.parse(req.responseText)
+			var l=response.username.length;			
+			var img="";
+			for(i=0;i<l;i++)
+				{
+				if(i%4==0 && i!=0)img+='<br>';	
+				img+='<img height=70 width=70 src="'+response.username[i]+'"></img>';
+				}
+			
+                    document.getElementById('myDiv').innerHTML =img;
+			//alert(img);
+		//for(i=0;i<response.username.length;i++)
+		//	imglist+='<li><img src= "' +response.username[i] + '"></li>';
+		//$('#myDiv').append('<li><img src="'+response.username[0]+'"></li>');
+                }
+            }
+        }
+    
+        req.open('POST', '/ajax')
+        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        var un = document.getElementById('SearchBox').value
+        var postVars ='username='+ un
+        req.send(postVars)
+        
+        return false
+    }
+</script>
+
+
+
+
+
+
+
   <form action="" method=post>
-    <dl>
-      <dt>Question:
-      <dd><input type=text name=username value="{{
-          request.form.username }}">
-    </dl>
-    <p><input type=submit value=Ask>
-  </form>
+     <br>
+<br><br> 
+     <div class="text">Wiki-Scroll</div>  
+     <center> <input id="SearchBox" class="question" placeholder="Search..." type=text name="username" value="{{
+          request.form.username }}"></center>
+<div class="container">
+  <div style="width:150px">
+    <button class="w3-button w3-border w3-hover-red">Ask Me</button>
+  </div>
+  <div class="output">{{output}}</div>
+  <input type="button" value="images" id="imgbtn" onclick="return loadXMLDoc();">
+</div>
+</form>
+<div id="myDiv"></div>
+
 {% endblock %}
